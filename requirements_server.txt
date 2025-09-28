@@ -14,4 +14,5 @@ websockets==14.0
 opencv-contrib-python==4.10.0.84
 opencv-python==4.10.0.84
 mediapipe==0.10.14
-
+pydantic==2.9.2
+pydantic_core==2.23.4
