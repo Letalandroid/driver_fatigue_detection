@@ -51,6 +51,8 @@ toml==0.10.2
 types-python-dateutil==2.9.0.20241206
 typing_extensions==4.12.2
 urllib3==2.2.3
+websockets==14.0
 pydantic==2.9.2
 pydantic_core==2.23.4
 watchdog==4.0.2
+
