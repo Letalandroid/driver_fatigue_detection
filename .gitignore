@@ -4,3 +4,6 @@ __pycache__/
 .idea/
 examples/video_example.mp4
 .venv/
+build/
+dist/
+drowsiness_processor/reports/
