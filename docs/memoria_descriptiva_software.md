@@ -2,7 +2,7 @@
 ## Sistema de Detección de Somnolencia del Conductor
 
 ### Versión 1.0
-### Fecha: 2024
+### Fecha: 2025
 
 ---
 
@@ -27,7 +27,7 @@
 
 - **Nombre del Software**: Sistema de Detección de Somnolencia del Conductor
 - **Versión**: 1.0
-- **Fecha de Desarrollo**: 2024
+- **Fecha de Desarrollo**: 2025
 - **Lenguaje de Programación**: Python 3.10+
 - **Tipo de Software**: Aplicación de Visión por Computadora en Tiempo Real
 - **Licencia**: [Especificar licencia]
@@ -880,7 +880,7 @@ Diagrama de clases mostrando relaciones entre componentes.
 
 ### C. Historial de Versiones
 
-- **v1.0** (2024): Versión inicial del sistema
+- **v1.0** (2025): Versión inicial del sistema
 
 ---
 
