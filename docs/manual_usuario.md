@@ -70,63 +70,20 @@ El Sistema de Detección de Somnolencia del Conductor es una aplicación de soft
 
 ## 3. Instalación
 
-### 3.1 Instalación desde Código Fuente
+### 3.1 Descomprimir el Archivo
 
-#### Paso 1: Clonar o Descargar el Repositorio
+1. Localice el archivo ZIP que recibió con la aplicación
+2. Haga clic derecho sobre el archivo ZIP
+3. Seleccione "Extraer todo" o "Extract All" (dependiendo de su sistema operativo)
+4. Elija una ubicación para descomprimir los archivos
+5. Espere a que se complete la extracción
 
-```bash
-git clone https://github.com/tu_usuario/driver_fatigue_detection.git
-cd driver_fatigue_detection
-```
+### 3.2 Verificar los Archivos
 
-#### Paso 2: Crear Entorno Virtual
-
-**Windows:**
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
-
-**Linux/macOS:**
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-#### Paso 3: Instalar Dependencias del Servidor
-
-```bash
-pip install -r requirements_server.txt
-```
-
-#### Paso 4: Instalar Dependencias del Cliente
-
-```bash
-pip install -r requirements_client.txt
-```
-
-### 3.2 Instalación mediante Docker
-
-#### Paso 1: Construir la Imagen Docker
-
-```bash
-docker build -t drowsiness-server .
-```
-
-#### Paso 2: Ejecutar el Contenedor
-
-```bash
-docker run -d -p 8000:8000 --name drowsiness-server drowsiness-server
-```
-
-### 3.3 Instalación desde Ejecutable
-
-Si tiene acceso a un ejecutable pre-compilado:
-
-1. Descargue el archivo ejecutable
-2. Ejecute el instalador
-3. Siga las instrucciones del asistente de instalación
-4. La aplicación se instalará en la ubicación predeterminada
+Después de descomprimir, debería ver los siguientes archivos y carpetas:
+- Archivos ejecutables del servidor y cliente
+- Carpetas con recursos de la aplicación
+- Archivos de configuración necesarios
 
 ---
 
@@ -136,39 +93,21 @@ Si tiene acceso a un ejecutable pre-compilado:
 
 El sistema requiere que el servidor esté ejecutándose antes de iniciar la interfaz gráfica.
 
-#### Método 1: Ejecución Manual
+1. Navegue hasta la carpeta descomprimida
+2. Localice el ejecutable del servidor (por ejemplo: `DrowsinessDetectionServer` o `server.exe`)
+3. Haga doble clic en el ejecutable del servidor para iniciarlo
+4. Espere a que aparezca un mensaje indicando que el servidor está ejecutándose
+5. El servidor estará disponible en `http://localhost:8000`
 
-Abra una terminal y ejecute:
-
-```bash
-uvicorn app:app --host 0.0.0.0 --port 8000
-```
-
-El servidor estará disponible en `http://localhost:8000`
-
-#### Método 2: Ejecución con Docker
-
-Si utiliza Docker, el servidor ya está ejecutándose en el contenedor.
-
-#### Método 3: Ejecución mediante Script
-
-En sistemas Windows, puede utilizar el script `start_server.bat`. En Linux/macOS, utilice `start_server.sh`.
+**Nota**: Mantenga la ventana del servidor abierta mientras use la aplicación.
 
 ### 4.2 Iniciar la Interfaz Gráfica
 
-Una vez que el servidor esté ejecutándose, abra una nueva terminal y ejecute:
+Una vez que el servidor esté ejecutándose:
 
-```bash
-flet run main.py
-```
-
-O si utiliza el ejecutable:
-
-```bash
-./drowsiness_detection_app
-```
-
-La interfaz gráfica se abrirá automáticamente en una ventana.
+1. Localice el ejecutable del cliente (por ejemplo: `DrowsinessDetectionClient` o `client.exe`)
+2. Haga doble clic en el ejecutable del cliente
+3. La interfaz gráfica se abrirá automáticamente en una ventana
 
 ### 4.3 Verificar la Conexión
 
@@ -185,40 +124,30 @@ Antes de comenzar, verifique que:
 
 Al iniciar la aplicación, se mostrará la pantalla de inicio con:
 
-- **Título de la Aplicación**: "Educare IA"
-- **Botón "Welcome"**: Haga clic para continuar a la siguiente pantalla
+- **Botón "Iniciar"**: Haga clic para continuar a la pantalla de detección de fatiga
 
-**Acción**: Haga clic en el botón "Welcome" para proceder.
+**Acción**: Haga clic en el botón "Iniciar" para proceder a la detección de fatiga.
 
-### 5.2 Pantalla de Selección de Interfaz
-
-En esta pantalla se muestra:
-
-- **Imagen de Somnolencia**: Representación visual del módulo de detección
-- **Botón "Somnolencia"**: Para acceder al módulo de detección de somnolencia
-
-**Acción**: Haga clic en el botón "Somnolencia" para iniciar la detección.
-
-### 5.3 Pantalla de Detección de Somnolencia
+### 5.2 Pantalla de Detección de Fatiga
 
 Esta es la pantalla principal del sistema. Muestra:
 
 #### Panel Izquierdo:
 - **Vista Original**: Muestra el video en tiempo real de la cámara
-- **Botón "Start"**: Inicia la detección de somnolencia
+- **Botón "Start"**: Inicia la detección de fatiga
 
 #### Panel Derecho:
 - **Vista Procesada**: Muestra el video con anotaciones y detecciones
 - **Botón "Stop"**: Detiene la detección
 
-### 5.4 Proceso de Detección
+### 5.3 Proceso de Detección
 
 #### Paso 1: Iniciar la Detección
 
 1. Asegúrese de estar frente a la cámara
 2. Mantenga una distancia de 50-100 cm de la cámara
 3. Asegúrese de que el rostro esté bien iluminado
-4. Haga clic en el botón **"Start"**
+4. Haga clic en el botón **"Start"** para iniciar la detección de fatiga
 
 #### Paso 2: Monitoreo en Tiempo Real
 
@@ -239,7 +168,7 @@ Para detener la detección:
 2. El procesamiento se detendrá inmediatamente
 3. Las vistas de video volverán a mostrar la imagen de lugar
 
-### 5.5 Interpretación de las Visualizaciones
+### 5.4 Interpretación de las Visualizaciones
 
 #### Indicadores Visuales:
 
@@ -410,7 +339,7 @@ El sistema utiliza los siguientes umbrales:
 
 ### P: ¿Puedo usar el sistema sin conexión a Internet?
 
-**R**: Sí, una vez instalado, el sistema funciona completamente offline. Solo se requiere Internet para la instalación inicial.
+**R**: Sí, el sistema funciona completamente offline. No se requiere conexión a Internet para su funcionamiento.
 
 ### P: ¿Funciona con cualquier cámara web?
 
@@ -444,11 +373,7 @@ El sistema utiliza los siguientes umbrales:
 
 ## 9. Soporte Técnico
 
-Para soporte técnico, reporte de errores o sugerencias:
-
-- **Email**: midelgadol@ucvvirtual.edu.pe
-- **GitHub**: https://github.com/letalandroid/driver_fatigue_detection
-- **Documentación**: Consulte el Manual de Aplicación del Código Fuente
+Para soporte técnico, reporte de errores o sugerencias, contacte al proveedor del software.
 
 ---
 

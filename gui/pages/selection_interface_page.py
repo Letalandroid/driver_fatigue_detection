@@ -21,7 +21,7 @@ class SelectionInterface:
         emotions_image = Image(src=self.images.image_4, fit=ImageFit.COVER)
 
         drowsiness_button = ElevatedButton(
-            text="Somnolencia",
+            text="Fatiga",
             on_click=self.drowsiness,
             bgcolor='#944adc',
             color='#FFFFFF',
