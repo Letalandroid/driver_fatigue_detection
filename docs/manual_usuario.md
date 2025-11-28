@@ -1,5 +1,5 @@
 # Manual de Usuario
-## Sistema de Detección de Somnolencia del Conductor
+## Sistema de Detección de Fatiga del Conductor
 
 ### Versión 1.0
 ### Fecha: 2025
@@ -21,12 +21,12 @@
 
 ## 1. Introducción
 
-El Sistema de Detección de Somnolencia del Conductor es una aplicación de software diseñada para monitorear en tiempo real el estado de alerta de un conductor mediante el análisis de video en tiempo real. El sistema detecta automáticamente signos de somnolencia como parpadeos, microsueños, bostezos, fricción ocular e inclinación de cabeza.
+El Sistema de Detección de Fatiga del Conductor es una aplicación de software diseñada para monitorear en tiempo real el estado de alerta de un conductor mediante el análisis de video en tiempo real. El sistema detecta automáticamente signos de fatiga como parpadeos, microsueños, bostezos, fricción ocular e inclinación de cabeza.
 
 ### 1.1 Características Principales
 
 - **Detección en Tiempo Real**: Análisis continuo de video mediante cámaras web estándar
-- **Múltiples Biomarcadores**: Detección simultánea de 5 tipos de indicadores de somnolencia
+- **Múltiples Biomarcadores**: Detección simultánea de 5 tipos de indicadores de fatiga
 - **Interfaz Gráfica Intuitiva**: Interfaz de usuario desarrollada con Flet
 - **Reportes Automáticos**: Generación de reportes en formato CSV y JSON
 - **Visualización en Tiempo Real**: Muestra el video original y procesado simultáneamente
@@ -376,32 +376,5 @@ El sistema utiliza los siguientes umbrales:
 Para soporte técnico, reporte de errores o sugerencias, contacte al proveedor del software.
 
 ---
-
-## 10. Información de Licencia
-
-Este software se proporciona "tal cual" sin garantías de ningún tipo. Consulte el archivo LICENSE para más información.
-
----
-
-## Anexos
-![diagrama](diagrama.png)
-
-### A. Glosario de Términos
-
-- **Biomarcador**: Indicador biológico medible de un estado fisiológico
-- **Frame**: Imagen individual de un video
-- **MediaPipe**: Framework de Google para percepción multimodal
-- **WebSocket**: Protocolo de comunicación bidireccional en tiempo real
-- **CSV**: Formato de archivo de valores separados por comas
-- **JSON**: Formato de intercambio de datos ligero
-
-### B. Referencias
-
-- Documentación de MediaPipe: https://mediapipe.dev
-- Documentación de OpenCV: https://opencv.org
-- Documentación de Flet: https://flet.dev
-
----
-
 **Fin del Manual de Usuario**
 

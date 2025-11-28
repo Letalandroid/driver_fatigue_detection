@@ -1,6 +1,6 @@
 # Guía de Build y Generación de Ejecutables
 
-Esta guía explica cómo generar ejecutables del Sistema de Detección de Somnolencia del Conductor y cómo convertir los documentos a PDF.
+Esta guía explica cómo generar ejecutables del Sistema de Detección de Fatiga del Conductor y cómo convertir los documentos a PDF.
 
 ## Requisitos Previos
 

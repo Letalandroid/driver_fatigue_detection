@@ -1,5 +1,5 @@
 # Memoria Descriptiva del Software
-## Sistema de Detección de Somnolencia del Conductor
+## Sistema de Detección de Fatiga del Conductor
 
 ### Versión 1.0
 ### Fecha: 2025
@@ -25,12 +25,11 @@
 
 ### 1.1 Información del Proyecto
 
-- **Nombre del Software**: Sistema de Detección de Somnolencia del Conductor
+- **Nombre del Software**: Sistema de Detección de Fatiga del Conductor
 - **Versión**: 1.0
 - **Fecha de Desarrollo**: 2025
 - **Lenguaje de Programación**: Python 3.10+
 - **Tipo de Software**: Aplicación de Visión por Computadora en Tiempo Real
-- **Licencia**: [Especificar licencia]
 
 ### 1.2 Equipo de Desarrollo
 
@@ -40,7 +39,7 @@
 
 ### 1.3 Propósito del Software
 
-El Sistema de Detección de Somnolencia del Conductor es una aplicación de software diseñada para monitorear en tiempo real el estado de alerta de conductores mediante el análisis de video en tiempo real. El sistema detecta automáticamente signos de somnolencia mediante el análisis de múltiples biomarcadores visuales, proporcionando alertas tempranas y reportes detallados para mejorar la seguridad vial.
+El Sistema de Detección de Fatiga del Conductor es una aplicación de software diseñada para monitorear en tiempo real el estado de alerta de conductores mediante el análisis de video en tiempo real. El sistema detecta automáticamente signos de fatiga mediante el análisis de múltiples biomarcadores visuales, proporcionando alertas tempranas y reportes detallados para mejorar la seguridad vial.
 
 ---
 
@@ -61,7 +60,7 @@ El sistema proporciona las siguientes funcionalidades principales:
 - **Captura de Video**: Captura de frames de video en tiempo real desde cámaras web
 - **Extracción de Puntos Clave**: Detección de puntos faciales y de manos mediante MediaPipe
 - **Procesamiento de Datos**: Cálculo de métricas geométricas a partir de puntos detectados
-- **Detección de Características**: Identificación de eventos de somnolencia mediante algoritmos temporales
+- **Detección de Características**: Identificación de eventos de fatiga mediante algoritmos temporales
 - **Visualización**: Generación de anotaciones visuales en tiempo real
 - **Generación de Reportes**: Creación de reportes en formato CSV y JSON
 - **Comunicación en Red**: Transmisión de datos mediante WebSockets
@@ -205,7 +204,7 @@ Procesamiento de puntos extraídos para calcular métricas geométricas.
 ### 4.3 Módulo: drowsiness_features
 
 #### Responsabilidad
-Detección de características de somnolencia mediante algoritmos temporales.
+Detección de características de fatiga mediante algoritmos temporales.
 
 #### Componentes Principales
 
@@ -305,7 +304,7 @@ Interfaz gráfica de usuario desarrollada con Flet.
 
 **SelectionInterfacePage**:
 - Selección de módulos disponibles
-- Navegación a módulo de somnolencia
+- Navegación a módulo de fatiga
 
 **DrowsinessPage**:
 - Visualización de video en tiempo real
@@ -622,7 +621,7 @@ original, sketch, report = system.run(image_base64)
 #### Eventos de Usuario
 
 - **Click en "Welcome"**: Navegación a página de selección
-- **Click en "Somnolencia"**: Navegación a página de detección
+- **Click en "Fatiga"**: Navegación a página de detección
 - **Click en "Start"**: Inicio de detección
 - **Click en "Stop"**: Detención de detección
 
@@ -643,8 +642,20 @@ original, sketch, report = system.run(image_base64)
 **Ubicación**: `drowsiness_processor/reports/august/drowsiness_report.csv`
 
 **Estructura**:
-```csv
-timestamp,eye_rub_first_hand_report,eye_rub_first_hand_count,eye_rub_first_hand_durations,|,eye_rub_second_hand_report,eye_rub_second_hand_count,eye_rub_second_hand_durations,|,flicker_report,flicker_count,|,micro_sleep_report,micro_sleep_count,micro_sleep_durations,|,pitch_report,pitch_count,pitch_durations,|,yawn_report,yawn_count,yawn_durations
+
+El archivo CSV contiene las siguientes columnas separadas por comas:
+
+**Encabezados**:
+- `timestamp`
+- `eye_rub_first_hand_report`, `eye_rub_first_hand_count`, `eye_rub_first_hand_durations`
+- `eye_rub_second_hand_report`, `eye_rub_second_hand_count`, `eye_rub_second_hand_durations`
+- `flicker_report`, `flicker_count`
+- `micro_sleep_report`, `micro_sleep_count`, `micro_sleep_durations`
+- `pitch_report`, `pitch_count`, `pitch_durations`
+- `yawn_report`, `yawn_count`, `yawn_durations`
+
+**Ejemplo de fila**:
+```
 2024-01-15 14:30:25,False,0,[],|,False,0,[],|,True,45,|,False,0,[],|,True,2,["1 pitch: 4.0 seconds"],|,False,0,[]
 ```
 
@@ -833,26 +844,6 @@ def function_name(param1: str, param2: int) -> dict:
 - Comentarios explicativos en secciones complejas
 - Comentarios TODO para mejoras futuras
 - Comentarios de advertencia para código crítico
-
-### 10.2 Diagramas
-
-#### Diagrama de Flujo
-
-Diagrama de flujo del proceso de detección (ver sección 3.1).
-
-#### Diagrama de Secuencia
-
-Diagrama de secuencia de comunicación cliente-servidor.
-
-#### Diagrama de Clases
-
-Diagrama de clases mostrando relaciones entre componentes.
-
-### 10.3 Manuales de Usuario
-
-- **Manual de Usuario**: Guía para usuarios finales
-- **Manual de Aplicación del Código**: Guía para desarrolladores
-- **Memoria Descriptiva**: Este documento
 
 ---
 

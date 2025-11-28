@@ -1,5 +1,5 @@
 # Manual de Aplicación del Código Fuente
-## Sistema de Detección de Somnolencia del Conductor
+## Sistema de Detección de Fatiga del Conductor
 
 ### Versión 1.0
 ### Fecha: 2025
@@ -23,7 +23,7 @@
 
 ## 1. Introducción
 
-Este manual proporciona información detallada sobre la estructura, implementación y aplicación del código fuente del Sistema de Detección de Somnolencia del Conductor. Está dirigido a desarrolladores, ingenieros de software y técnicos que deseen entender, modificar o extender el sistema.
+Este manual proporciona información detallada sobre la estructura, implementación y aplicación del código fuente del Sistema de Detección de Fatiga del Conductor. Está dirigido a desarrolladores, ingenieros de software y técnicos que deseen entender, modificar o extender el sistema.
 
 ### 1.1 Tecnologías Utilizadas
 
@@ -174,7 +174,7 @@ Punto de entrada de la interfaz gráfica desarrollada con Flet.
 - Páginas: Start, SelectionInterface, Drowsiness
 
 #### drowsiness_processor/main.py
-Sistema central de detección de somnolencia.
+Sistema central de detección de fatiga.
 
 **Componentes principales:**
 - `DrowsinessDetectionSystem`: Orquesta todos los módulos
@@ -187,12 +187,19 @@ Sistema central de detección de somnolencia.
 
 ### 4.1 Configuración del Entorno de Desarrollo
 
-#### Paso 1: Clonar el Repositorio
+#### Paso 1: Obtener el Código Fuente
 
-```bash
-git clone https://github.com/tu_usuario/driver_fatigue_detection.git
-cd driver_fatigue_detection
-```
+El código fuente se proporciona en un archivo ZIP o mediante un enlace de descarga.
+
+**Opción A: Archivo ZIP**
+1. Descomprima el archivo ZIP recibido
+2. Navegue hasta la carpeta descomprimida
+
+**Opción B: Descarga desde Mediafire**
+1. Acceda al enlace de descarga proporcionado (Mediafire)
+2. Descargue el archivo ZIP
+3. Descomprima el archivo ZIP
+4. Navegue hasta la carpeta descomprimida
 
 #### Paso 2: Crear Entorno Virtual
 
@@ -338,7 +345,7 @@ distances = processor.main(eyes_points)
 
 #### processing.py
 
-**Responsabilidad**: Coordinar la detección de características de somnolencia.
+**Responsabilidad**: Coordinar la detección de características de fatiga.
 
 **Clase principal**: `FeaturesDrowsinessProcessing`
 

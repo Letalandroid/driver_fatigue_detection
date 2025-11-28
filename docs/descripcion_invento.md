@@ -1,10 +1,10 @@
 # 4. Descripción detallada del invento
 
-## Sistema de Detección de Somnolencia del Conductor en Tiempo Real mediante Procesamiento Multi-Modal de Características Faciales y Gestuales
+## Sistema de Detección de Fatiga del Conductor en Tiempo Real mediante Procesamiento Multi-Modal de Características Faciales y Gestuales
 
 ### Concepto Inventivo Central
 
-La presente invención consiste en un sistema computacional integrado para la detección automática de signos de somnolencia en conductores mediante el análisis en tiempo real de múltiples biomarcadores visuales extraídos de video streaming. El concepto inventivo central reside en la integración sincronizada de cinco módulos de procesamiento independientes que analizan simultáneamente: (1) parpadeos y microsueños a través de la medición de distancias entre párpados superiores e inferiores, (2) bostezos mediante el cálculo de la relación entre distancia labial y distancia del mentón, (3) fricción ocular detectando la proximidad de dedos a las regiones oculares, (4) inclinación de cabeza (pitch) mediante análisis de posicionamiento relativo de puntos faciales clave, y (5) la generación automática de reportes estadísticos con ventanas temporales configurables. La innovación principal radica en el procesamiento paralelo de estas características utilizando técnicas de visión por computadora basadas en MediaPipe, combinado con algoritmos de detección temporal que identifican patrones de fatiga mediante umbrales de duración específicos para cada biomarcador, permitiendo una evaluación integral y no invasiva del estado de alerta del conductor.
+La presente invención consiste en un sistema computacional integrado para la detección automática de signos de fatiga en conductores mediante el análisis en tiempo real de múltiples biomarcadores visuales extraídos de video streaming. El concepto inventivo central reside en la integración sincronizada de cinco módulos de procesamiento independientes que analizan simultáneamente: (1) parpadeos y microsueños a través de la medición de distancias entre párpados superiores e inferiores, (2) bostezos mediante el cálculo de la relación entre distancia labial y distancia del mentón, (3) fricción ocular detectando la proximidad de dedos a las regiones oculares, (4) inclinación de cabeza (pitch) mediante análisis de posicionamiento relativo de puntos faciales clave, y (5) la generación automática de reportes estadísticos con ventanas temporales configurables. La innovación principal radica en el procesamiento paralelo de estas características utilizando técnicas de visión por computadora basadas en MediaPipe, combinado con algoritmos de detección temporal que identifican patrones de fatiga mediante umbrales de duración específicos para cada biomarcador, permitiendo una evaluación integral y no invasiva del estado de alerta del conductor.
 
 ### Descripción Funcional de los Componentes
 
@@ -20,7 +20,7 @@ Este módulo constituye la primera etapa del sistema y se encarga de la detecci�
 
 #### 4.2. Módulo de Procesamiento de Puntos (PointsProcessing)
 
-Este módulo transforma las coordenadas crudas de los puntos detectados en métricas geométricas calculadas mediante distancias euclidianas, preparando los datos para el análisis de características de somnolencia.
+Este módulo transforma las coordenadas crudas de los puntos detectados en métricas geométricas calculadas mediante distancias euclidianas, preparando los datos para el análisis de características de fatiga.
 
 **4.2.1. EyesProcessor**: Calcula cuatro distancias clave para cada ojo: (a) distancia del párpado superior derecho, (b) distancia del párpado superior izquierdo, (c) distancia del párpado inferior derecho, y (d) distancia del párpado inferior izquierdo. Estas distancias se obtienen midiendo la separación entre puntos específicos de los contornos palpebrales superiores e inferiores. La función de estas métricas es determinar el estado de apertura/cierre ocular mediante comparación relativa: cuando la distancia del párpado superior es menor que la del inferior, los ojos están cerrados.
 
@@ -30,9 +30,9 @@ Este módulo transforma las coordenadas crudas de los puntos detectados en métr
 
 **4.2.4. FirstHandProcessor y SecondHandProcessor**: Estos procesadores calculan distancias entre cada uno de los cinco dedos de cada mano detectada y los puntos oculares (derecho e izquierdo por separado). Generan estructuras de datos que contienen las distancias mínimas entre cada falange y cada región ocular, permitiendo la detección de fricción ocular cuando alguna de estas distancias cae por debajo del umbral de 40 píxeles.
 
-#### 4.3. Módulo de Procesamiento de Características de Somnolencia (FeaturesDrowsinessProcessing)
+#### 4.3. Módulo de Procesamiento de Características de Fatiga (FeaturesDrowsinessProcessing)
 
-Este módulo constituye el núcleo analítico del sistema, implementando algoritmos temporales que convierten las métricas geométricas en eventos de somnolencia mediante la aplicación de umbrales de duración y técnicas de detección de patrones.
+Este módulo constituye el núcleo analítico del sistema, implementando algoritmos temporales que convierten las métricas geométricas en eventos de fatiga mediante la aplicación de umbrales de duración y técnicas de detección de patrones.
 
 **4.3.1. FlickerEstimator (Detección de Parpadeos y Microsueños)**: Este procesador monitorea continuamente el estado de apertura/cierre ocular mediante la comparación de las cuatro distancias palpebrales calculadas por el EyesProcessor. Implementa dos algoritmos de detección:
 
@@ -52,7 +52,7 @@ Este módulo constituye el núcleo analítico del sistema, implementando algorit
 
 - **Detección de Fricción**: Utiliza temporizadores independientes para cada combinación mano-ojo. Cuando se detecta proximidad, se inicia un cronómetro específico. Si la proximidad se mantiene por más de 1 segundo, se registra como un evento de fricción ocular, incluyendo la duración y el lado afectado (derecho o izquierdo). Los reportes se generan cada 300 segundos (5 minutos), consolidando los eventos de ambas manos y ambos ojos.
 
-**4.3.4. PitchEstimator (Detección de Inclinación de Cabeza)**: Procesa las métricas del HeadProcessor para detectar inclinaciones sostenidas de la cabeza hacia abajo, que pueden indicar somnolencia:
+**4.3.4. PitchEstimator (Detección de Inclinación de Cabeza)**: Procesa las métricas del HeadProcessor para detectar inclinaciones sostenidas de la cabeza hacia abajo, que pueden indicar fatiga:
 
 - **Determinación de Posición de Cabeza**: Evalúa la posición relativa del punto nasal respecto a los puntos de mejillas y compara las distancias nariz-boca y nariz-frente. Determina tres estados posibles: cabeza inclinada hacia abajo a la derecha, cabeza inclinada hacia abajo a la izquierda, o cabeza erguida.
 
@@ -60,11 +60,11 @@ Este módulo constituye el núcleo analítico del sistema, implementando algorit
 
 #### 4.4. Módulo de Visualización (ReportVisualizer)
 
-Este componente genera representaciones visuales en tiempo real sobre los frames de video procesados, superponiendo anotaciones gráficas que incluyen: (a) dibujo de mallas faciales y de manos detectadas, (b) etiquetas de texto indicando el estado actual de cada biomarcador (abierto/cerrado para ojos y boca, posición de cabeza), (c) contadores de eventos (número de parpadeos, bostezos, fricciones oculares, microsueños, inclinaciones), y (d) alertas visuales cuando se detectan eventos críticos de somnolencia (microsueños, bostezos frecuentes, inclinaciones sostenidas).
+Este componente genera representaciones visuales en tiempo real sobre los frames de video procesados, superponiendo anotaciones gráficas que incluyen: (a) dibujo de mallas faciales y de manos detectadas, (b) etiquetas de texto indicando el estado actual de cada biomarcador (abierto/cerrado para ojos y boca, posición de cabeza), (c) contadores de eventos (número de parpadeos, bostezos, fricciones oculares, microsueños, inclinaciones), y (d) alertas visuales cuando se detectan eventos críticos de fatiga (microsueños, bostezos frecuentes, inclinaciones sostenidas).
 
 #### 4.5. Módulo de Generación de Reportes (DrowsinessReports)
 
-Este módulo gestiona la persistencia y exportación de datos de somnolencia mediante dos mecanismos:
+Este módulo gestiona la persistencia y exportación de datos de fatiga mediante dos mecanismos:
 
 **4.5.1. Almacenamiento en CSV**: Los eventos detectados se registran en archivos CSV con formato estructurado que incluye timestamps, tipos de evento, duraciones, y conteos acumulados. Los reportes se organizan temporalmente según ventanas de análisis configuradas para cada biomarcador.
 
@@ -74,13 +74,13 @@ Este módulo gestiona la persistencia y exportación de datos de somnolencia med
 
 El sistema implementa una arquitectura cliente-servidor basada en WebSockets para permitir el procesamiento remoto de video streaming:
 
-**4.6.1. Servidor FastAPI**: Implementa un endpoint WebSocket (`/ws`) que recibe frames de video codificados en Base64, los decodifica, procesa mediante el DrowsinessDetectionSystem, y retorna resultados que incluyen: (a) el frame original procesado, (b) un sketch con anotaciones visuales, y (c) un reporte JSON con todas las métricas de somnolencia detectadas.
+**4.6.1. Servidor FastAPI**: Implementa un endpoint WebSocket (`/ws`) que recibe frames de video codificados en Base64, los decodifica, procesa mediante el DrowsinessDetectionSystem, y retorna resultados que incluyen: (a) el frame original procesado, (b) un sketch con anotaciones visuales, y (c) un reporte JSON con todas las métricas de fatiga detectadas.
 
 **4.6.2. Cliente de Video**: Captura frames de una fuente de video (cámara web o archivo), los codifica en JPEG y Base64, los transmite al servidor vía WebSocket, y recibe los resultados procesados para visualización local.
 
 #### 4.7. Interfaz Gráfica de Usuario (GUI)
 
-Desarrollada con Flet, la interfaz proporciona tres páginas principales: (a) página de inicio para inicialización del sistema, (b) página de selección de interfaz para configurar la fuente de video, y (c) página de detección de somnolencia que muestra el video procesado en tiempo real junto con paneles de información de métricas y alertas.
+Desarrollada con Flet, la interfaz proporciona tres páginas principales: (a) página de inicio para inicialización del sistema, (b) página de selección de interfaz para configurar la fuente de video, y (c) página de detección de fatiga que muestra el video procesado en tiempo real junto con paneles de información de métricas y alertas.
 
 ### Relaciones entre Componentes
 
@@ -88,7 +88,7 @@ El flujo de procesamiento sigue una arquitectura de pipeline secuencial donde ca
 
 1. **Extracción → Procesamiento de Puntos**: El PointsExtractor proporciona coordenadas de puntos clave al PointsProcessing, que las transforma en distancias geométricas.
 
-2. **Procesamiento de Puntos → Características de Somnolencia**: Las distancias calculadas alimentan los estimadores de características (FlickerEstimator, YawnEstimator, EyeRubEstimator, PitchEstimator), que aplican algoritmos temporales para detectar eventos.
+2. **Procesamiento de Puntos → Características de Fatiga**: Las distancias calculadas alimentan los estimadores de características (FlickerEstimator, YawnEstimator, EyeRubEstimator, PitchEstimator), que aplican algoritmos temporales para detectar eventos.
 
 3. **Características → Visualización y Reportes**: Los eventos detectados se envían simultáneamente al ReportVisualizer (para anotación visual) y al DrowsinessReports (para almacenamiento y exportación).
 
