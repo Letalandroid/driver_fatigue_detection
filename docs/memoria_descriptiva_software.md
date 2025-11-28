@@ -33,7 +33,7 @@
 
 ### 1.2 Equipo de Desarrollo
 
-- **Desarrollador**: Mirko Delgado León nada mas
+- **Desarrollador**: Mirko Delgado León
 
 ### 1.3 Propósito del Software
 
