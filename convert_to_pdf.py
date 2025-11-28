@@ -1,3 +1,4 @@
+#!/home/lta/projects/driver_fatigue_detection/.venv/bin/python3
 """
 Script para convertir documentos Markdown a PDF
 Requiere: markdown, weasyprint o reportlab
