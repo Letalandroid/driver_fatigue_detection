@@ -33,9 +33,7 @@
 
 ### 1.2 Equipo de Desarrollo
 
-- **Desarrolladores**: [Nombres del equipo]
-- **Organización**: [Nombre de la organización]
-- **Contacto**: [Email de contacto]
+- **Desarrollador**: Mirko Delgado León nada mas
 
 ### 1.3 Propósito del Software
 
