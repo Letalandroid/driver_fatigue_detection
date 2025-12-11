@@ -7,3 +7,4 @@ examples/video_example.mp4
 build/
 dist/
 drowsiness_processor/reports/
+*.mp4
