@@ -7,7 +7,7 @@ from gui.pages.drowsiness_page import Drowsiness
 class MainApp:
     def __init__(self, page: Page):
         self.page = page
-        self.page.title = "Educare ia"
+        self.page.title = "Detección de Fatiga del Conductor"
         self.page.bgcolor = "#fffffe"
         self.page.window.resizable = False
         self.page.padding = 0

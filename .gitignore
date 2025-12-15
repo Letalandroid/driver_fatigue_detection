@@ -3,3 +3,11 @@ __pycache__/
 *.pyc
 .idea/
 examples/video_example.mp4
+.venv/
+build/
+dist/
+drowsiness_processor/reports/
+*.mp4
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore

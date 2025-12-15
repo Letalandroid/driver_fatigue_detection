@@ -21,7 +21,7 @@ class SelectionInterface:
         emotions_image = Image(src=self.images.image_4, fit=ImageFit.COVER)
 
         drowsiness_button = ElevatedButton(
-            text="Somnolencia",
+            text="Fatiga",
             on_click=self.drowsiness,
             bgcolor='#944adc',
             color='#FFFFFF',
@@ -32,29 +32,29 @@ class SelectionInterface:
             )
         )
 
-        translate_button = ElevatedButton(
-            text="Traductor",
-            on_click=self.translate,
-            bgcolor='#007dfe',
-            color='#FFFFFF',
-            width=180,
-            height=40,
-            style=ButtonStyle(
-                shape=RoundedRectangleBorder(radius=10),
-            )
-        )
+        # translate_button = ElevatedButton(
+        #     text="Traductor",
+        #     on_click=self.translate,
+        #     bgcolor='#007dfe',
+        #     color='#FFFFFF',
+        #     width=180,
+        #     height=40,
+        #     style=ButtonStyle(
+        #         shape=RoundedRectangleBorder(radius=10),
+        #     )
+        # )
 
-        emotions_button = ElevatedButton(
-            text="Emociones",
-            on_click=self.emotions,
-            bgcolor='#e03851',
-            color='#FFFFFF',
-            width=180,
-            height=40,
-            style=ButtonStyle(
-                shape=RoundedRectangleBorder(radius=10),
-            )
-        )
+        # emotions_button = ElevatedButton(
+        #     text="Emociones",
+        #     on_click=self.emotions,
+        #     bgcolor='#e03851',
+        #     color='#FFFFFF',
+        #     width=180,
+        #     height=40,
+        #     style=ButtonStyle(
+        #         shape=RoundedRectangleBorder(radius=10),
+        #     )
+        # )
 
         left_column = Column(
             controls=[
@@ -68,36 +68,36 @@ class SelectionInterface:
             expand=True
         )
 
-        center_column = Column(
-            controls=[
-                Container(height=30),
-                translate_image,
-                translate_button,
-            ],
-            alignment='center',
-            horizontal_alignment='center',
-            spacing=20,
-            expand=True
-        )
+        # center_column = Column(
+        #     controls=[
+        #         Container(height=30),
+        #         translate_image,
+        #         # translate_button,
+        #     ],
+        #     alignment='center',
+        #     horizontal_alignment='center',
+        #     spacing=20,
+        #     expand=True
+        # )
 
-        right_column = Column(
-            controls=[
-                Container(height=30),
-                emotions_image,
-                emotions_button,
-            ],
-            alignment='center',
-            horizontal_alignment='center',
-            spacing=20,
-            expand=True
-        )
+        # right_column = Column(
+        #     controls=[
+        #         Container(height=30),
+        #         emotions_image,
+        #         # emotions_button,
+        #     ],
+        #     alignment='center',
+        #     horizontal_alignment='center',
+        #     spacing=20,
+        #     expand=True
+        # )
 
         elements = Container(
             content=Row(
                 controls=[
                     left_column,
-                    center_column,
-                    right_column
+                    # center_column,
+                    # right_column
                 ],
                 alignment='spaceEvenly',
                 vertical_alignment='center',
