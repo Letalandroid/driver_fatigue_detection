@@ -16,8 +16,8 @@ class Start:
         }
 
     def main(self):
-        welcome_button = ElevatedButton(
-            text="Welcome",
+        iniciar_button = ElevatedButton(
+            text="Iniciar",
             on_click=self.start,
             bgcolor='#2a2a2a',
             color='#FFFFFF',
@@ -28,23 +28,12 @@ class Start:
             )
         )
 
-        stack_text = Stack(
-            [
-                Text('Educare', font_family='Brittany', size=60, weight='bold', color='#7fc3e9'),
-                Text('IA', font_family='Cardo', size=60, weight='bold', color='#2a2a2a', offset=Offset(1.2, 0.45))
-            ]
-        )
-
-        banner_image = Image(src=self.images.image_1, fit=ImageFit.COVER)
-
         center_column = Column(
             controls=[
                 Container(height=30),
-                stack_text,
                 Container(height=100),
-                welcome_button,
+                iniciar_button,
                 Container(height=80),
-                banner_image
             ],
             alignment='center',
             horizontal_alignment='center',
@@ -67,4 +56,4 @@ class Start:
         return elements
 
     def start(self, e):
-        self.page.go("/selection_interface_page")
+        self.page.go("/drowsiness_page")
