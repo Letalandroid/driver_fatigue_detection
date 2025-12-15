@@ -1,0 +1,6 @@
+# Dependencias para build y conversión a PDF
+pyinstaller>=6.0.0
+markdown>=3.4.0
+weasyprint>=60.0
+Pillow>=10.0.0
+

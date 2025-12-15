@@ -3,7 +3,8 @@ import sys
 import cv2
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from drowsiness_processor.main import DrowsinessDetectionSystem
-from camera import Camera
+from examples.camera import Camera
+from find_obs import find_obs_virtual_camera
 
 
 class VideoStream:
@@ -30,8 +31,13 @@ class VideoStream:
 
 
 if __name__ == "__main__":
-    camera = Camera(0, 1280, 720)
-    # camera = Camera("examples/video_example.mp4", 1280, 720)
+    # cam_index = find_obs_virtual_camera()
+
+    # if cam_index is None:
+    #     raise Exception("No se encontró la cámara virtual de OBS")
+
+    # camera = Camera(10, 1280, 720)
+    camera = Camera("examples/Conductor_13.mp4", 1280, 720)
     emotion_recognition_system = DrowsinessDetectionSystem()
     video_stream = VideoStream(camera, emotion_recognition_system)
     video_stream.run()
